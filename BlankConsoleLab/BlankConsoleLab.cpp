@@ -2,6 +2,10 @@
 //
 
 #include <iostream>
+#include "Array.h"
+#include "List.h"
+#include "BSTree.h"
+#include "HashTable.h"
 
 using namespace std;
 
