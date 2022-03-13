@@ -42,6 +42,7 @@ public:
 	void PrintBackwards(); // print the entire link list backwards
 	const T& First(); // returns the first element in the link list
 	const T& Last(); // return the last element in the link list
+	T RetrieveElement(int item); // finds the element in the linked list and returns it.
 
 	Node<T>* getHead();
 	Node<T>* getTail();
@@ -326,6 +327,22 @@ const T& List<T>::Last()
 	while (curr->nextElement != nullptr) {
 		curr = curr->nextElement;
 	}
+	return curr->data;
+}
+
+template<typename T>
+inline T List<T>::RetrieveElement(int item)
+{
+	Node<T>* curr = head;
+
+	if (item == 0)
+	{
+		return curr->data;
+	}
+
+	for (int i = 1; i <= item; i++)
+		curr = curr->nextElement;
+
 	return curr->data;
 }
 

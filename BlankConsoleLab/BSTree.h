@@ -23,6 +23,7 @@ public:
 	const int Height(const BSNode<T>* root); // finds the height of the tree and returns a int value
 	void Purge(const BSNode<T>* root); // deletes the entire tree
 	void PreOrderTreeArray(T arr[]); // creates a PreOrder Tranversal Array. Used in Unit Tests
+	T search(BSNode<T>* root, T item);
 
 	void Delete(T value); // deletes a value that is inside the tree using the DeleteNode function
 
@@ -198,6 +199,18 @@ template<typename T>
 inline void BSTree<T>::PreOrderTreeArray(T arr[])
 {
 	PreOrder(root, arr);
+}
+
+template<typename T>
+inline T BSTree<T>::search(BSNode<T>* root, T item)
+{
+	if (root == nullptr || root->data == item)
+		return root->data;
+
+	if (root->data < item)
+		return search(root->rightchild, item);
+
+	return search(root->leftchild, item);
 }
 
 template<typename T>
